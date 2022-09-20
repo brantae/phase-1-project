@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="content-type" content="text/html">
+
+  <link rel="stylesheet" href="./style.css">
+  
+  
+  
+<title>Beer Liker App</title>
+</head>
+<body>
+    <div class="scroll">
+    <p> Scroll Bar </p>
+</div>
+<header>
+    <h1> For Craft Beer Lovers 🍺 </h1>
+</header>
+
+<main>
+
+<!--input new beers to add here-->
+<div id="form">
+    <form id="beer-form">
+        <div>
+            <label for="beer-name">Beer:</label><br>
+            <input type="text" id="form-beer" placeholder="What's the name?" name="name"><br>
+        </div>
+        <div>
+            <label for="description">Description:</label><br>
+            <input type="text" id="form-description" placeholder = 'Tell us about it...' name="description"><br>
+        </div>
+        <div>
+            <label for="abv">ABV:</label><br>
+            <input type="text" id="form-abv" placeholder="Alcohol by volume %..." name="abv"><br>
+        </div>
+        <br>
+        <input type="submit" name="submit" value="Add Your Fav" class="submit">
+    </form>
+    
+    <br>
+    <div id="list">
+        
+        
+        <p id="liked">Beers I like:</p>
+        <ul>
+        <li></li>
+        </ul>
+    </div>
+    </div>
+    <br>
+
+    
+
+    <header>
+        <h2 class="question"> Do you like any of these? </h2>
+    </header>
+    <br>
+
+<!--beer cards rendered here with image, description, and ABV-->
+<div class="container">
+    
+    
+</div>
+</main>
+
+<script src="index.js"></script>
+</body>
+</html>

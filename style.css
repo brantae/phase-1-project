@@ -1,0 +1,161 @@
+
+
+body {
+    margin: 10px;
+    background-color: rgb(170, 152, 211);
+  }
+
+  body h1 {
+    margin-top: 75px;
+    color: #FFF;
+    font-family: "Raleway";
+    text-align: center;
+    font-weight: 500;
+    font-size: 5em;
+  }
+
+  body h2 {
+    margin-top: 75px;
+    color: #FFF;
+    font-family: "Georgia";
+    text-align: center;
+    font-size: x-large;
+    
+
+  }
+  .question {
+    padding-top: 20px;
+  }
+
+  .container {
+    padding-top: 20px;
+
+  }
+ 
+
+  .card {
+    
+    text-align: center;
+    border: grey solid 1px;
+    background-color: rgb(138, 192, 176);
+    width: 15rem;
+    height: 25rem;
+    display: inline-grid;
+    margin: 1rem 2rem;
+    box-shadow: 3px 4px #420a2d
+  }
+
+  .beer-pic {
+    justify-self: center;
+    height: 12rem;
+    width: auto;
+  }
+
+  .card h2 {
+    
+    margin-bottom: auto;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.60em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    
+  }
+
+  p {
+    margin: 1px;
+    font-size: small;
+    font-family: "Calibri";
+    font-weight: lighter;
+    margin-bottom: 0em;
+    
+  }
+
+
+
+  ul {
+    list-style-type: none;
+    
+}
+
+li {
+    padding-left: 0%;
+    padding-right: 2em;
+}
+img {
+    opacity: 0.945;
+    margin-top: 0em;
+}
+
+
+
+
+form {
+    width: 750px;
+
+    
+    position:static;
+    margin: auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333;
+}
+
+
+
+#list {
+    font-size: xx-large;
+    width: 750px;
+
+    
+    position:static;
+    margin: auto;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;  
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.3);
+    padding: 20px 20px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px #333;
+
+}
+#list p {
+    font-size: xx-large;
+}
+
+.submit {
+    position: relative;
+    background-color: #f1ef8a;
+    border-radius: 5px;
+    height: 2rem;
+    width: max-content;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    justify-self: center;
+    font-family: monospace;
+    margin: 3px;
+}
+
+.scroll {
+    width: 2500px;
+    height: 100px;
+    background-color: #FFF;
+    overflow: auto;
+}
+
+.scroll p {
+    font-size: 2rem;
+    margin: 0;
+}
