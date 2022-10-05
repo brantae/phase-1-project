@@ -6,14 +6,14 @@
 * The user will determine whether they like the beer based off this information and they can choose to add to their list & like preexisting ones.
 
 ## Features
-* Form Submittal
+1. Form Submittal
 - Input a name, description, and the ABV of a beer not listed in the cards that you would like to add to the "Beers I like" list
-* Beer Cards
+2. Beer Cards
 - Twenty-five beer cards are rendered using fetch from a free beer API you can find here: https://punkapi.com/documentation/v2
-* Clicking Like
+3. Clicking Like
 - On each beer card, there is a heart you can click which will add the 'liked' beer to the "Beers I like" list.
 
-* Build up the list of beers you want to try so you too can become a craft beer lover!
+    * Build up the list of beers you want to try so you too can become a craft beer lover!
 
 ## How to Use
 * Input the name of a beer, its description, and ABV into the form.
