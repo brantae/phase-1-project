@@ -1,5 +1,7 @@
 # Name 
-* The Beer Liker App!
+* The Beer Liker App! :beer:
+
+![Beer Liker Demo](ezgif.com-gif-maker (5).gif)
 
 ## Introduction
 * Being a massive fan of craft beer, I'd like to display some beers with a lot of facts including a description of taste & their alcohol level.
