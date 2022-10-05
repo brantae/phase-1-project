@@ -1,7 +1,7 @@
 # Name 
 * The Beer Liker App! :beer:
 
-
+![Beer Liker App Demo](https://user-images.githubusercontent.com/34112039/194180247-886bafdf-9a64-4725-9a4c-a7554e643615.gif)
 
 ## Introduction
 * Being a massive fan of craft beer, I'd like to display some beers with a lot of facts including a description of taste & their alcohol level.
