@@ -1,7 +1,5 @@
-
-
 const url = "https://api.punkapi.com/v2/beers"
- const container = document.querySelector('.container')
+const container = document.querySelector('.container')
 const heart = '❤️'
 const likeList = document.querySelector("#liked")
 //console.log(likeList)
@@ -10,8 +8,8 @@ const beerForm = document.querySelector('form')
 //console.log(beerForm)
 
 getAllBeers()
-eventListeners()
-//addLikeButtons()
+formEventListener()
+addNewBeer()
 
 function getAllBeers() {
   return fetch(url)
@@ -21,6 +19,7 @@ function getAllBeers() {
      data.forEach((beer) => {
       //console.log(beer)
       renderBeer(beer)
+      
      })
      
  })
@@ -28,7 +27,8 @@ function getAllBeers() {
 }
 
 
-function eventListeners() {
+//Tells user to input a valid whole number
+function formEventListener() {
 form.addEventListener('invalid', function(e) {
   //console.log(e)
   
@@ -38,28 +38,33 @@ form.addEventListener('invalid', function(e) {
   }
 )
 
-  form.addEventListener('change', function (event) {
-    event.target.setCustomValidity('');
-  })
+}
 
+//Inputs new beer into list from the form
+function addNewBeer() {
   beerForm.addEventListener('submit', (e) => {
       e.preventDefault()
+      console.log('')
       updateList(e.target.name.value, e.target.description.value, e.target.abv.value)
       beerForm.reset()
       
   })
 }
 
+//Adds like buttons to each beer card
 function addLikeButtons() {
   
   let button = document.querySelectorAll('.try')
-  console.log(button)
+  //console.log(button)
     button.forEach((btn) =>
    {
     
     btn.addEventListener('click', (e) => {
     console.log('click')
     console.log(e)
+    console.log(btn)
+    updateList(name, description, abv)
+
 
     
     })
@@ -69,9 +74,7 @@ function addLikeButtons() {
 }
 
 
- 
-
- 
+//Renders each beer card from API
 function renderBeer(beer) {
   const beerCard = `<div class='card'>
   <h2> ${beer.name} <br>
@@ -89,20 +92,9 @@ function renderBeer(beer) {
   </div>
   `
   container.innerHTML += beerCard;
-
-// document.querySelectorAll('.try').forEach( (btn) =>
-//   {
-//   //console.log(btn)
-//   btn.addEventListener('click', (e) => {
-//   //console.log('click')
-//   console.log(e)
-//   updateList()
-  
-//     })
-// })
 }
 
-
+//Adds a beer from the cards into the list of liked beers when heart is clicked
   function updateList(name, description, abv) {
     
     let p = document.createElement('p');
