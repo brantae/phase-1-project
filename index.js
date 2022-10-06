@@ -31,7 +31,7 @@ function getAllBeers() {
      
  })
  .then(addLikeButton)
- //.then(addLikedToList)
+ 
  
 
 }
@@ -111,15 +111,17 @@ function addLikeButton() {
 //Adds the beer that is liked to the list of 'Beers I like'
 function addLikedToList(beer) {
   let likedBeer = document.querySelectorAll('h3')
-  //let likeBeerArray = [...likedBeer]
-  likedBeer.forEach(beer => {
-    //prints the name, description, and volume from each card
-    //console.log(beer)
-    h3 = beer
-  })
+  //console.log(likedBeer)
+  let likedBeerArray = [...likedBeer]
+  console.log(likedBeerArray)
+  // likedBeer.forEach(beer => {
+  //   //prints the name, description, and volume from each card
+  //   console.log(beer)
+  //   h3 = beer
+  // })
   let p = document.createElement('p');
     p.className = 'liked-beer'
-    p.innerHTML = `${h3}`//liked beer
+    p.innerHTML = `${likedBeerArray[0].innerHTML}` //return the liked beer
     likeList.appendChild(p)
 
 }
