@@ -66,10 +66,10 @@ function addNewBeer() {
 //Renders each beer card from API
 function renderBeer(beer) {
   const beerCard = `<div class='card'>
-  <h2> ${beer.name} <br>
+  <h3> ${beer.name} <br>
   <p> ${beer.tagline} <br>
   <p> ${beer.abv}% ABV </p>
-  </p></h2>
+  </p></h3>
   <img src=${beer.image_url} class='beer-pic' /> `
   
   container.innerHTML += beerCard;
@@ -110,11 +110,18 @@ function addLikeButton() {
 //Functionality of the like button
 //Adds the beer that is liked to the list of 'Beers I like'
 function addLikedToList(beer) {
+  let likedBeer = document.querySelectorAll('h3')
+  //let likeBeerArray = [...likedBeer]
+  likedBeer.forEach(beer => {
+    //prints the name, description, and volume from each card
+    //console.log(beer)
+    h3 = beer
+  })
   let p = document.createElement('p');
-  p.className = 'liked-beer'
-  p.innerHTML = `•${beer.name} <br> •${beer.description} <br> •${beer.abv}%`
-  likeList.appendChild(p)
- 
+    p.className = 'liked-beer'
+    p.innerHTML = `${h3}`//liked beer
+    likeList.appendChild(p)
+
 }
 
 
@@ -123,7 +130,6 @@ function addLikedToList(beer) {
   function updateList(name, description, abv) {
     
     let p = document.createElement('p');
-    
     p.innerHTML = `•${name} <br> •${description} <br> •${abv}%`
     likeList.appendChild(p)
     
