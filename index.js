@@ -13,10 +13,6 @@ formEventListener()
 addNewBeer()
 
 
-/*
-likeList.addEventListener('click', addLikedToList(beer))
-*/
-
 function getAllBeers() {
   return fetch(url)
  .then((res) => res.json())
@@ -32,8 +28,6 @@ function getAllBeers() {
  })
  .then(addLikeButton)
  
- 
-
 }
 
 
@@ -55,7 +49,6 @@ form.addEventListener('invalid', function(e) {
 function addNewBeer() {
   beerForm.addEventListener('submit', (e) => {
       e.preventDefault()
-      console.log('')
       updateList(e.target.name.value, e.target.description.value, e.target.abv.value)
       beerForm.reset()
       
@@ -96,12 +89,10 @@ function addLikeButton() {
   ul.appendChild(li)
   li.append(button)
 
-  card.addEventListener('click', (e) => {
-    console.log('click')
-    console.log(e)
-    addLikedToList()
-  })
-  })
+//when like button is clicked, add beer detail to list
+  card.addEventListener('click', () => addLikedToList())
+  
+})
 
    
   
@@ -109,30 +100,28 @@ function addLikeButton() {
 
 //Functionality of the like button
 //Adds the beer that is liked to the list of 'Beers I like'
-function addLikedToList(beer) {
+function addLikedToList() {
   let likedBeer = document.querySelectorAll('h3')
   //console.log(likedBeer)
-  let likedBeerArray = [...likedBeer]
-  console.log(likedBeerArray)
-  // likedBeer.forEach(beer => {
-  //   //prints the name, description, and volume from each card
-  //   console.log(beer)
-  //   h3 = beer
-  // })
+  let likedBeerArray = [...likedBeer] //turns node list of beer cards into accessible array
+  //console.log(likedBeerArray)
+
+
+  let beerDetails = likedBeerArray.map(beer => beer.innerHTML) //grabs each innerHTML from the array of beers
+  //console.log(beerDetails)
+
   let p = document.createElement('p');
     p.className = 'liked-beer'
-    p.innerHTML = `${likedBeerArray[0].innerHTML}` //return the liked beer
+    p.innerHTML = `${beerDetails}` 
     likeList.appendChild(p)
 
 }
 
 
-
 //Adds a beer into the list when inputs are submitted in the form
   function updateList(name, description, abv) {
-    
     let p = document.createElement('p');
-    p.innerHTML = `•${name} <br> •${description} <br> •${abv}%`
+    p.innerHTML = `${name} <br> ${description} <br> ${abv}%`
     likeList.appendChild(p)
     
   }
