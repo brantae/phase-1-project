@@ -1,7 +1,7 @@
 const url = "https://api.punkapi.com/v2/beers"
 const container = document.querySelector('.container')
 const heart = '❤️'
-const likeList = document.querySelector("#liked")
+const likeList = document.querySelector("#list-of-beer")
 //console.log(likeList)
 let form = document.querySelector("#form-abv")
 const beerForm = document.querySelector('form')
