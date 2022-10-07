@@ -21,12 +21,13 @@ function getAllBeers() {
      data.forEach((beer) => {
       //console.log(beer)
       renderBeer(beer)
-      
+     //debugger; 
+     
      })
      
      
  })
- .then(addLikeButton)
+ //.then(addLikeButton)
  
 }
 
@@ -63,59 +64,53 @@ function renderBeer(beer) {
   <p> ${beer.tagline} <br>
   <p> ${beer.abv}% ABV </p>
   </p></h3>
-  <img src=${beer.image_url} class='beer-pic' /> `
-  
+  <img src=${beer.image_url} class='beer-pic' /> 
+  <button class='heart'> Add me to the list ${heart} </button>`
+ 
   container.innerHTML += beerCard;
-}
 
 //Adds a like button to each card
-function addLikeButton() {
-  let cards = document.querySelectorAll('.card')
-  //console.log(cards)
-
-
-  cards.forEach(card => {
-  let footer = document.createElement('footer')
-  let ul = document.createElement('ul')
-  let li = document.createElement('li')
-  let button = document.createElement('button')
-  button.className = 'heart'
-  button.innerText = `Add me to the list! ${heart}`
-
-
-  //console.log(card)
-  card.append(footer)
-  footer.appendChild(ul)
-  ul.appendChild(li)
-  li.append(button)
-
-//when like button is clicked, add beer detail to list
-   button.addEventListener('click', () => addLikedToList())
-  
-})
-
-   
-  
+  let heartButton = document.querySelector('.heart')
+  heartButton.addEventListener('click', () => addLikeButton()) //anonymous in-line function
 }
 
 //Functionality of the like button
 //Adds the beer that is liked to the list of 'Beers I like'
-function addLikedToList() {
-  let likedBeer = document.querySelectorAll('h3')
-  //console.log(likedBeer)
-  let likedBeerArray = [...likedBeer] //turns node list of beer cards into accessible array
-  console.log(likedBeerArray)
 
+function addLikeButton() {
+    
+    let cards = document.querySelectorAll('.card')
+    cards.forEach((c, i) => {
+    let name = document.getElementsByTagName('h3')[ i ].innerHTML
+    console.log('card names:', name)
 
-  let beerDetails = likedBeerArray.map(beer => beer.innerText) //grabs each innerHTML from the array of beers
-  console.log(beerDetails)
-
-  let p = document.createElement('p');
-    p.className = 'liked-beer'
-    p.innerHTML = `${beerDetails}` 
-    likeList.appendChild(p)
-
+    const list = document.querySelector("#list-of-beer")
+    let p = document.createElement('p')
+    p.innerHTML = `${name}`
+    list.append(p)
+      
+    })
 }
+
+
+
+
+// function addLikedToList() {
+//   let likedBeer = document.querySelectorAll('h3')
+//   //console.log(likedBeer)
+//   let likedBeerArray = [...likedBeer] //turns node list of beer cards into accessible array
+//   console.log(likedBeerArray)
+
+//grabs each innerHTML from the array of beers
+//   let beerDetails = likedBeerArray.map(beer => beer.innerText) //arrow function
+//   console.log(beerDetails)
+
+//   let p = document.createElement('p');
+//     p.className = 'liked-beer'
+//     p.innerHTML = `${beerDetails}` 
+//     likeList.appendChild(p)
+
+//}
 
 
 //Adds a beer into the list when inputs are submitted in the form
