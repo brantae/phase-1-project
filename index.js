@@ -11,7 +11,7 @@ const beerForm = document.querySelector('form')
 getAllBeers()
 formEventListener()
 addNewBeer()
-
+likeButtonFunction()
 
 function getAllBeers() {
   return fetch(url)
@@ -27,7 +27,7 @@ function getAllBeers() {
      
      
  })
- //.then(addLikeButton)
+ 
  
 }
 
@@ -59,36 +59,53 @@ function addNewBeer() {
 
 //Renders each beer card from API
 function renderBeer(beer) {
-  const beerCard = `<div class='card'>
-  <h3> ${beer.name} <br>
-  <p> ${beer.tagline} <br>
-  <p> ${beer.abv}% ABV </p>
-  </p></h3>
-  <img src=${beer.image_url} class='beer-pic' /> 
-  <button class='heart'> Add me to the list ${heart} </button>`
- 
-  container.innerHTML += beerCard;
+    const cardDiv = document.createElement('div')
+    const h3 = document.createElement('h3')
+    const p1 = document.createElement('p')
+    const p2 = document.createElement('p')
+    const img = document.createElement('img')
+    const btn = document.createElement('button')
+    cardDiv.className = 'card'
+    
+    h3.innerText = beer.name
+    p1.innerHTML = beer.tagline
+    p2.innerHTML = beer.abv + '% ABV'
+    img.src = beer.image_url
+    img.className = 'beer-pic'
+    btn.className = 'heart'
+    btn.innerText = `Add me to the list! ${heart}`
+    //btn.addEventListener('click', () => addLikeButton())
+  
+    container.append(cardDiv)
+    cardDiv.append(h3)
+    cardDiv.append(p1)
+    cardDiv.append(p2)
+    cardDiv.append(img)
+    cardDiv.append(btn)
+
 
 //Adds a like button to each card
-  let heartButton = document.querySelector('.heart')
-  heartButton.addEventListener('click', () => addLikeButton()) //anonymous in-line function
+  //let heartButton = document.querySelector('.heart')
+  btn.addEventListener('click', () => likeButtonFunction()) //anonymous in-line function
 }
 
 //Functionality of the like button
 //Adds the beer that is liked to the list of 'Beers I like'
 
-function addLikeButton() {
+function likeButtonFunction() {
     
     let cards = document.querySelectorAll('.card')
-    cards.forEach((c, i) => {
-    let name = document.getElementsByTagName('h3')[ i ].innerHTML
-    console.log('card names:', name)
 
-    const list = document.querySelector("#list-of-beer")
-    let p = document.createElement('p')
-    p.innerHTML = `${name}`
-    list.append(p)
-      
+    cards.forEach((c, i) => {
+        let name = document.getElementsByTagName('h3')[ i ].innerHTML
+        console.log(name)
+        const list = document.querySelector("#list-of-beer")
+    
+    
+        let p = document.createElement('p')
+        p.innerHTML = `${name}`
+        list.append(p)
+        
     })
 }
 
