@@ -90,7 +90,7 @@ function addLikeButton() {
   li.append(button)
 
 //when like button is clicked, add beer detail to list
-  card.addEventListener('click', () => addLikedToList())
+   button.addEventListener('click', () => addLikedToList())
   
 })
 
@@ -104,11 +104,11 @@ function addLikedToList() {
   let likedBeer = document.querySelectorAll('h3')
   //console.log(likedBeer)
   let likedBeerArray = [...likedBeer] //turns node list of beer cards into accessible array
-  //console.log(likedBeerArray)
+  console.log(likedBeerArray)
 
 
-  let beerDetails = likedBeerArray.map(beer => beer.innerHTML) //grabs each innerHTML from the array of beers
-  //console.log(beerDetails)
+  let beerDetails = likedBeerArray.map(beer => beer.innerText) //grabs each innerHTML from the array of beers
+  console.log(beerDetails)
 
   let p = document.createElement('p');
     p.className = 'liked-beer'
