@@ -35,19 +35,20 @@ function formEventListener() {
 form.addEventListener('invalid', function(e) {
   //console.log(e)
   
-  if(e.target.type = 'invalid') {
+  if(e.target.type == 'invalid') {
     e.target.setCustomValidity('Please input a valid number.');
-        }
+        } 
      })
     }
+  
 
 //Inputs new beer into list from the form
 function addNewBeer() {
   beerForm.addEventListener('submit', (e) => {
-    console.log(e)
+    //console.log(e)
       e.preventDefault()
       updateList(e.target.name.value, e.target.description.value, e.target.abv.value)
-      beerForm.reset()
+      beerForm.reset() //resets values of elements in form after a submittal
       })
 }
 

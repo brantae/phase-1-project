@@ -23,15 +23,15 @@
     <form id="beer-form">
         <div>
             <label for="beer-name">Beer:</label><br>
-            <input type="text" id="form-beer" placeholder="What's the name?" name="name"><br>
+            <input type="text" id="form-beer" style="width: 11em" placeholder="What's the name?" name="name"><br>
         </div>
         <div>
             <label for="description">Description:</label><br>
-            <input type="text" id="form-description" placeholder = 'Tell us about it...' name="description"><br>
+            <input type="text" id="form-description" style="width: 11em" placeholder = 'Tell us about it...' name="description"><br>
         </div>
-        <div>
+        <div id="abv-line">
             <label for="abv">ABV:</label><br>
-            <input type="number" id="form-abv" placeholder="Alcohol by volume %..." name="abv"><br>
+            <input type="number" id="form-abv" step=".01" min="0" max="100" style="width: 11em" placeholder="Alcohol by volume %..." name="abv"><br>
         </div>
         <br>
         <input type="submit" name="submit" value="Add Your Fav" class="submit">
