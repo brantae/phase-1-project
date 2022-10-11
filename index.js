@@ -6,7 +6,7 @@ const likeList = document.querySelector("#list-of-beer")
 let form = document.querySelector("#form-abv")
 const beerForm = document.querySelector('form')
 //console.log(beerForm)
-let beers = []
+//let beers = []
 
 
 getAllBeers()
@@ -18,8 +18,8 @@ function getAllBeers() {
   return fetch(url)
  .then((res) => res.json())
  .then(function(data) {
-  //console.log(data)
-     beers = data
+  console.log(data)
+     //beers = data
      data.forEach((beer) => {
       //console.log(beer)
       renderBeer(beer)
@@ -44,6 +44,7 @@ form.addEventListener('invalid', function(e) {
 //Inputs new beer into list from the form
 function addNewBeer() {
   beerForm.addEventListener('submit', (e) => {
+    console.log(e)
       e.preventDefault()
       updateList(e.target.name.value, e.target.description.value, e.target.abv.value)
       beerForm.reset()
@@ -68,9 +69,11 @@ function renderBeer(beer) {
     img.className = 'beer-pic'
     btn.className = 'heart'
     btn.innerText = `Add me to the list! ${heart}`
-    btn.name = beer.name
-    btn.tag = beer.tagline
-    btn.abv = beer.abv
+
+    //Set button targets equal to name of beer on card so when we 'like' it, it can be easily added to the list container
+    btn.name = beer.name //specifies a specific name
+    btn.tag = beer.tagline //value we created
+    btn.abv = beer.abv //value we created
   
     container.append(cardDiv)
     cardDiv.append(h3)
@@ -86,28 +89,31 @@ function renderBeer(beer) {
 //Functionality of the like button
 //Adds the beer that is liked to the list of 'Beers I like'
 
-function likeButtonFunction(e) {
+
+function likeButtonFunction(e) { //use e as parameter bc it's recognized as the callback for an event
     console.log(e)
-    //grab beer details from click event
+    //set variable equal to value of target
     const likedBeerName = e.target.name
     const likedBeerTag = e.target.tag
     const likedBeerAbv = e.target.abv
-    //console.log(likedBeerTag)
+    
 
-    //find beer detail from event and set to variable using empty array
-    const beerNameFind = beers.find(b => b.name === likedBeerName)
-    const beerTagFind = beers.find(b => b.tagline === likedBeerTag)
-    const beerAbvFind = beers.find(b => b.abv === likedBeerAbv)
-    //console.log(beerTagFind.tagline)
+    //find beer detail from event and set the button class name to the beer name
+    //const beerNameFind = beers.find(b => b.name === likedBeerName)
+    //const beerTagFind = beers.find(b => b.tagline === likedBeerTag)
+    //const beerAbvFind = beers.find(b => b.abv === likedBeerAbv)
+    
     const list = document.querySelector("#list-of-beer")
     
     //create p elements for the liked beer details
     let beerName = document.createElement('p')
     let beerTag = document.createElement('p')
     let beerAbv = document.createElement('p')
-    beerName.innerHTML = `-${beerNameFind.name}`
-    beerTag.innerHTML = `-${beerTagFind.tagline}`
-    beerAbv.innerHTML = `-${beerAbvFind.abv} %`
+
+    
+    beerName.innerHTML = `-${likedBeerName}`
+    beerTag.innerHTML = `-${likedBeerTag}`
+    beerAbv.innerHTML = `-${likedBeerAbv}%`
     list.append(beerName, beerTag, beerAbv)
         
     
